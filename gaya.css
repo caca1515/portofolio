@@ -1,171 +1,163 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+:root {
+    color-scheme: light;
+    --ink: #18324a;
+    --muted: #536b80;
+    --blue: #256b91;
+    --blue-dark: #174c70;
+    --sky: #eaf5fb;
+    --paper: #ffffff;
+    --line: #d9e7ef;
+    --shadow: 0 18px 45px rgba(27, 69, 99, .10);
 }
-.container {
-    margin: 0;
-    padding: 0;
-    
-}
-header {
-    width: 100%;
-    padding: 10px;
-    background-color: #648DB3;
-}
-nav a{
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-nav ul li a:hover {
-    background-color: blueviolet;
-    color: black;
 
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+body {
+    margin: 0;
+    background: #f5f8fc;
+    color: var(--ink);
+    font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.container { width: 100%; overflow: hidden; }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
 }
 nav ul {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-
-}
-section {
-    min-height: 300px;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-#home{
-    background-color: #60C1E5;
-    display: grid;
-    grid-template-columns:  1fr 2fr;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-}
-.foto {
-    /* background-color: black;  */
-}
-.foto img {
-    border-radius: 50%;
-    width: 200px;
-    height:200px;
-}
-.profil {
-    background-color: #A0E0EF;
-}
-.tentangsaya {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}    
-.tentangme {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
-    
-}
-.detailsaya {
-    margin-bottom: 3%;
-    
-}
-
-
-
-.skill {
-    text-align: center;
-}
-.list{
-    display: flex;
-    margin-top: 10px;
-    gap: 10px;
-    padding: 50px;
-}
-.kotak {
-    margin: 10px;
-    height: 80px;
-    width: 150px;
-    border-radius: 15%;
-    background-color: #648DB3;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    
-
-}
-.projek {
-    background-color: #60C1E5;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.poto {
-    /* background-color: blueviolet; */
-    height: 200px;
-    width: 200px;
-    border-radius: 0%;
-    margin-bottom: 3%;
-}
-.poto img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-}
-
-.web {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    
-}
-.kontak {
-    background-color: #A0E0EF;
-}
-.form {
-    
-    margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.from {
-    background-color: #4382DF;
-    min-height:200px ;
-    width: 80%;
+    min-height: 68px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 40px;
-    margin-top: 20px;
-}
-.balok {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-}
-
-.form-kanan, .form-kiri {
+    padding: 0 24px;
+    list-style: none;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
 }
-input[type=text] {
-    height: 50px;
+nav a {
+    display: block;
+    padding: 9px 15px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
 }
-textarea {
-    height: 130px;
+nav a:hover, nav a:focus-visible { background: var(--sky); color: var(--blue-dark); }
+section { padding: 88px max(24px, calc((100% - 1000px) / 2)); }
+#home {
+    min-height: 490px;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    align-items: center;
+    gap: 64px;
+    background: linear-gradient(135deg, #e9f6fc, #f8fbff 72%);
 }
+.foto { display: flex; justify-content: center; }
+.foto img {
+    width: 210px;
+    height: 210px;
+    border: 7px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+.tentang h1 { margin: 0 0 12px; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.15; letter-spacing: -.04em; }
+.tentang { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
+.tentang h1 { color: var(--ink); }
+.profil, .kontak { background: var(--paper); }
+.tentangsaya { max-width: 690px; margin: 0 auto; text-align: center; }
+.tentangsaya h1, .projek-heading h1, .form h1 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.25; letter-spacing: -.025em; }
+.tentangsaya p, .projek-heading p, .form p { color: var(--muted); }
+.tentangme { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; margin-top: 48px; }
+.detailsaya h4, .skill h4 { margin: 0 0 14px; font-size: 1.25rem; }
+.detailsaya p { margin: 0 0 13px; color: var(--muted); }
+.skill { text-align: left; }
+.list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+.kotak {
+    min-width: 105px;
+    padding: 12px 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--sky);
+    color: var(--blue-dark);
+}
+.kotak h3 { margin: 0; font-size: 1rem; }
+.projek { background: #f3f8fc; }
+.projek-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+.web {
+    max-width: 820px;
+    margin: 20px auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: center;
+    gap: 30px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 8px 24px rgba(27,69,99,.05);
+}
+.poto { height: 170px; overflow: hidden; border-radius: 12px; background: var(--sky); }
+.poto img { width: 100%; height: 100%; object-fit: cover; }
+.website h4 { margin: 0 0 8px; font-size: 1.2rem; }
+.website p { margin: 0; color: var(--muted); }
+.website a { color: var(--blue); font-weight: 600; }
+.form { max-width: 680px; margin: 0 auto 32px; text-align: center; }
+.from { max-width: 760px; margin: 0 auto; padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: #f8fbfd; box-shadow: var(--shadow); }
+.balok { display: grid; grid-template-columns: 1fr 1.3fr; gap: 22px; }
+.form-kanan, .form-kiri { display: flex; flex-direction: column; align-items: stretch; text-align: left; }
+.form-kanan label, .form-kiri label { margin: 0 0 6px; font-weight: 600; }
+.form-kanan input, textarea {
+    width: 100%;
+    margin: 0 0 17px;
+    padding: 12px 14px;
+    border: 1px solid #cbdce7;
+    border-radius: 9px;
+    background: white;
+    color: var(--ink);
+    font: inherit;
+}
+.form-kanan input { min-height: 48px; }
+textarea { min-height: 145px; resize: vertical; }
+.form-kanan input:focus, textarea:focus { outline: 3px solid rgba(37,107,145,.15); border-color: var(--blue); }
 .balok input[type=submit] {
-    height: 50px;
-    width: 100px;
-    align-self: flex-end;
-    
-
+    align-self: flex-start;
+    min-width: 120px;
+    padding: 11px 22px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--blue);
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
 }
-footer {
-    text-align: center;
+.balok input[type=submit]:hover { background: var(--blue-dark); transform: translateY(-1px); }
+footer { padding: 22px 16px; background: #173d59; color: #e6f1f7; text-align: center; font-size: .92rem; }
+
+@media (max-width: 650px) {
+    nav ul { min-height: 60px; justify-content: center; gap: 2px; padding: 0 10px; }
+    nav a { padding: 8px 11px; font-size: .92rem; }
+    section { padding: 64px 22px; }
+    #home { min-height: auto; grid-template-columns: 1fr; gap: 25px; text-align: center; }
+    .foto img { width: 170px; height: 170px; }
+    .tentang { margin: 0 auto; }
+    .tentangme { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+    .web { grid-template-columns: 1fr; gap: 18px; padding: 18px; }
+    .poto { height: 210px; }
+    .from { padding: 22px; }
+    .balok { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; }
 }
